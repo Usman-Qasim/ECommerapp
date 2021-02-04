@@ -37,6 +37,9 @@ function OrderScreen({ match, history }) {
   const orderDeliver = useSelector((state) => state.orderDeliver);
   const { loading: loadingDeliver, success: succesDeliver } = orderDeliver;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   if (!loading) {
     order.itemsPrice = addDecimal(
       order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
@@ -69,15 +72,12 @@ function OrderScreen({ match, history }) {
         setSdkReady(true);
       }
     }
-  }, [dispatch, orderId, succesPay, order, succesDeliver, history]);
+  }, [dispatch, orderId, succesPay, order, succesDeliver, history, userInfo]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
   };
-
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
 
   const delivereHandler = () => {
     dispatch(deliverOrder(order));

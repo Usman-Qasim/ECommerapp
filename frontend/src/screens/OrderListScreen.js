@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Table, Button, Row, Col } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
@@ -51,7 +51,7 @@ function OrderListScreen({ history, match }) {
                 <td>$ {order.totalPrice}</td>
                 <td>
                   {order.isDelivered ? (
-                    order.deliveredAt.substring(0, 10)
+                    order.deliverAt.substring(0, 10)
                   ) : (
                     <i className="fas fa-times" style={{ color: "red" }}></i>
                   )}

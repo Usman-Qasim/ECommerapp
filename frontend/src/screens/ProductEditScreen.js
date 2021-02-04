@@ -3,11 +3,7 @@ import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  listProducts,
-  detailProduct,
-  updateProduct,
-} from "../actions/productActions";
+import { detailProduct, updateProduct } from "../actions/productActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { Link } from "react-router-dom";
